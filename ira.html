@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Portofolio fotografer dan videografer profesional. Abadikan momen terbaik Anda.">
+  <title>syaf.creative | Photography & Videography</title>
+  <style>
+    :root {
+      --bg: #101010; --panel: #1b1b1b; --text: #f5f2ec;
+      --muted: #aaa69f; --accent: #d6a96c; --line: #303030;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { background: var(--bg); color: var(--text); font-family: Arial, sans-serif; line-height: 1.6; }
+    a { color: inherit; text-decoration: none; }
+    .container { width: min(1100px, 90%); margin: auto; }
+    header { position: sticky; top: 0; z-index: 10; background: #101010ed; border-bottom: 1px solid var(--line); }
+    nav { min-height: 70px; display: flex; justify-content: space-between; align-items: center; gap: 20px; }
+    .logo { font-weight: 800; letter-spacing: 2px; font-size: 1.2rem; }
+    .logo span { color: var(--accent); }
+    .nav-links { display: flex; gap: 24px; list-style: none; font-size: .9rem; }
+    .nav-links a:hover { color: var(--accent); }
+    .menu-btn { display: none; background: none; border: 0; color: white; font-size: 1.6rem; }
+    .hero { min-height: 570px; display: grid; align-items: center; background: linear-gradient(90deg,#101010 8%,#101010d9 48%,#10101035), url('https://images.unsplash.com/photo-1516035069371-29a1b244cc32?auto=format&fit=crop&w=1600&q=85') center/cover; }
+    .hero-content { max-width: 650px; padding: 90px 0; }
+    .eyebrow { color: var(--accent); letter-spacing: 3px; text-transform: uppercase; font-size: .78rem; font-weight: bold; }
+    h1 { font-size: clamp(2.6rem, 7vw, 5.3rem); line-height: 1.05; margin: 18px 0; }
+    h1 span, h2 span { color: var(--accent); }
+    .hero p { color: #d0ccc5; max-width: 520px; margin-bottom: 28px; }
+    .btn { display: inline-block; background: var(--accent); color: #17120c; padding: 12px 23px; border-radius: 4px; font-weight: bold; transition: .2s; }
+    .btn:hover { transform: translateY(-3px); background: #edc58e; }
+    section { padding: 85px 0; }
+    .section-head { margin-bottom: 35px; }
+    .section-head h2 { font-size: clamp(2rem,4vw,3rem); margin-top: 8px; }
+    .section-head p { color: var(--muted); max-width: 600px; margin-top: 8px; }
+    .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 45px; align-items: center; }
+    .about-photo { min-height: 360px; border-radius: 8px; background: url('https://images.unsplash.com/photo-1452587925148-ce544e77e70d?auto=format&fit=crop&w=1000&q=80') center/cover; }
+    .about-copy p { color: var(--muted); margin: 14px 0; }
+    .stats { display: flex; gap: 35px; margin-top: 25px; }
+    .stats strong { display: block; color: var(--accent); font-size: 1.7rem; }
+    .portfolio-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 16px; }
+    .work { position: relative; height: 260px; overflow: hidden; border-radius: 6px; background: #292929; }
+    .work img { width: 100%; height: 100%; object-fit: cover; transition: .4s; }
+    .work:hover img { transform: scale(1.07); }
+    .work-label { position: absolute; bottom: 0; left: 0; right: 0; padding: 35px 16px 14px; background: linear-gradient(transparent,#000c); font-weight: bold; }
+    .skills-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 28px 50px; }
+    .skill-top { display: flex; justify-content: space-between; margin-bottom: 9px; }
+    .skill-top span:last-child { color: var(--accent); font-weight: bold; }
+    .bar { height: 9px; background: #333; border-radius: 20px; overflow: hidden; }
+    .bar div { height: 100%; background: var(--accent); border-radius: 20px; }
+    .pricing-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 18px; }
+    .price-card { background: var(--panel); padding: 28px; border: 1px solid var(--line); border-radius: 8px; }
+    .price-card.featured { border-color: var(--accent); transform: translateY(-8px); }
+    .price-card h3 { font-size: 1.25rem; }
+    .price { color: var(--accent); font-size: 2rem; font-weight: 800; margin: 12px 0; }
+    .price small { font-size: .8rem; color: var(--muted); font-weight: normal; }
+    .price-card ul { list-style: none; color: var(--muted); margin: 20px 0 25px; }
+    .price-card li { padding: 7px 0; border-bottom: 1px solid var(--line); }
+    .reviews-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 18px; }
+    .review { background: var(--panel); padding: 25px; border-radius: 8px; border: 1px solid var(--line); }
+    .stars { color: var(--accent); letter-spacing: 3px; }
+    .review p { color: #c5c0b8; margin: 14px 0 20px; }
+    .review strong { display: block; }
+    .review small { color: var(--muted); }
+    .contact { text-align: center; background: #191714; }
+    .contact p { color: var(--muted); margin: 12px auto 25px; max-width: 560px; }
+    footer { border-top: 1px solid var(--line); padding: 24px 0; text-align: center; color: var(--muted); font-size: .85rem; }
+    @media(max-width: 760px) {
+      .menu-btn { display: block; }
+      .nav-links { display: none; position: absolute; top: 70px; left: 0; right: 0; padding: 20px 5%; background: #151515; flex-direction: column; }
+      .nav-links.show { display: flex; }
+      .about-grid, .skills-grid { grid-template-columns: 1fr; }
+      .portfolio-grid, .pricing-grid, .reviews-grid { grid-template-columns: 1fr 1fr; }
+      .price-card.featured { transform: none; }
+      .hero { min-height: 500px; }
+    }
+    @media(max-width: 480px) {
+      .portfolio-grid, .pricing-grid, .reviews-grid { grid-template-columns: 1fr; }
+      .stats { gap: 20px; }
+      section { padding: 65px 0; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav class="container">
+      <a class="logo" href="#home">SYAF<span>.</span>CREATIVE</a>
+      <button class="menu-btn" aria-label="Buka menu" onclick="toggleMenu()">☰</button>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#tentang">Tentang</a></li><li><a href="#portfolio">Portfolio</a></9li>
+        <li><a href="#skill">Skill</a></li><li><a href="#harga">Harga</a></li>
+        <li><a href="#review">Review</a></li><li><a href="#kontak">Kontak</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="container hero-content">
+        <div class="eyebrow">Photography • Videography</div>
+        <h1>Setiap momen punya <span>cerita.</span></h1>
+        <p>Kami mengabadikan momen berharga melalui foto dan video yang kreatif, berkesan, dan penuh cerita.</p>
+        <a class="btn" href="#portfolio">Lihat Portfolio</a>
+      </div>
+    </section>
+
+    <section id="tentang">
+      <div class="container about-grid">
+        <div class="about-photo" role="img" aria-label="Fotografer sedang mengambil gambar"></div>
+        <div class="about-copy">
+          <div class="eyebrow">Kenali Kami</div>
+          <h2>Tentang <span> SYAF CREATIVE</span></h2>
+          <p>SYAF CREATIVE adalah layanan fotografi dan videografi yang berfokus pada dokumentasi momen, acara, produk, dan kebutuhan konten kreatif.</p>
+          <p>Dengan kreativitas, ketelitian, dan proses editing yang rapi, kami berusaha menghasilkan karya visual yang sesuai dengan cerita dan kebutuhan setiap klien.</p>
+          <div class="stats">
+            <div><strong>3+</strong><small>Tahun pengalaman</small></div>
+            <div><strong>100+</strong><small>Proyek kreatif</small></div>
+            <div><strong>50+</strong><small>Klien puas</small></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="portfolio">
+      <div class="container">
+        <div class="section-head"><div class="eyebrow">Karya Pilihan</div><h2>Portfolio <span>Kami</span></h2><p>Beberapa contoh kategori karya fotografi dan videografi.</p></div>
+        <div class="portfolio-grid">
+          <div class="work"><img src="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=800&q=80" alt="Fotografi pernikahan"><div class="work-label">Wedding Photography</div></div>
+          <div class="work"><img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=800&q=80" alt="Foto portrait"><div class="work-label">Portrait Photography</div></div>
+          <div class="work"><img src="https://images.unsplash.com/photo-1492684223066-81342ee5ff30?auto=format&fit=crop&w=800&q=80" alt="Dokumentasi acara"><div class="work-label">Event Documentation</div></div>
+          <div class="work"><img src="https://images.unsplash.com/photo-1492619375914-88005aa9e8fb?auto=format&fit=crop&w=800&q=80" alt="Kamera video"><div class="work-label">Cinematic Video</div></div>
+          <div class="work"><img src="https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f?auto=format&fit=crop&w=800&q=80" alt="Fotografi produk"><div class="work-label">Product Photography</div></div>
+          <div class="work"><img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=800&q=80" alt="Pemandangan alam"><div class="work-label">Travel & Lifestyle</div></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="skill">
+      <div class="container">
+        <div class="section-head"><div class="eyebrow">Kemampuan</div><h2>Skill & <span>Keahlian</span></h2><p>Persentase berikut adalah contoh tingkat kemampuan. Silakan sesuaikan dengan kemampuan sebenarnya.</p></div>
+        <div class="skills-grid">
+          <div><div class="skill-top"><span>Photography</span><span>90%</span></div><div class="bar"><div style="width:90%"></div></div></div>
+          <div><div class="skill-top"><span>Videography</span><span>85%</span></div><div class="bar"><div style="width:85%"></div></div></div>
+          <div><div class="skill-top"><span>Photo Editing</span><span>88%</span></div><div class="bar"><div style="width:88%"></div></div></div>
+          <div><div class="skill-top"><span>Video Editing</span><span>82%</span></div><div class="bar"><div style="width:82%"></div></div></div>
+          <div><div class="skill-top"><span>Color Grading</span><span>80%</span></div><div class="bar"><div style="width:80%"></div></div></div>
+          <div><div class="skill-top"><span>Creative Direction</span><span>75%</span></div><div class="bar"><div style="width:75%"></div></div></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="harga">
+      <div class="container">
+        <div class="section-head"><div class="eyebrow">Paket Layanan</div><h2>Daftar <span>Harga</span></h2><p>Harga di bawah merupakan contoh dan dapat disesuaikan dengan lokasi, durasi, serta kebutuhan proyek.</p></div>
+        <div class="pricing-grid">
+          <article class="price-card"><h3>Photo Basic</h3><div class="price">Rp50rb <small>/ sesi</small></div><ul><li>Durasi hingga 1 jam</li><li>10 foto hasil edit</li><li>File digital resolusi tinggi</li><li>1 lokasi</li></ul><a class="btn" href="#kontak">Pilih Paket</a></article>
+          <article class="price-card featured"><h3>Video Highlight</h3><div class="price">Rp70rb <small>/ proyek</small></div><ul><li>Durasi pengambilan hingga 2 jam</li><li>Video highlight 1–2 menit</li><li>Basic color grading</li><li>File digital Full HD</li></ul><a class="btn" href="#kontak">Pilih Paket</a></article>
+          <article class="price-card"><h3>Photo & Video</h3><div class="price">Rp100rb <small>/ proyek</small></div><ul><li>Foto dan video dokumentasi</li><li>20 foto hasil edit</li><li>Video highlight 1–3 menit</li><li>File digital</li></ul><a class="btn" href="#kontak">Pilih Paket</a></article>
+        </div>
+      </div>
+    </section>
+
+    <section id="review">
+      <div class="container">
+        <div class="section-head"><div class="eyebrow">Kata Mereka</div><h2>Review <span>Customer</span></h2><p>Contoh tampilan ulasan pelanggan. Ganti dengan testimoni asli setelah mendapat izin dari pelanggan.</p></div>
+        <div class="reviews-grid">
+          <article class="review"><div class="stars">★★★★★</div><p>“Hasil fotonya bagus dan proses pengerjaannya sesuai dengan kesepakatan. Pelayanannya juga ramah.”</p><strong>Andi</strong><small>Klien fotografi</small></article>
+          <article class="review"><div class="stars">★★★★★</div><p>“Video dokumentasinya menarik, momen penting berhasil terekam dengan baik. Terima kasih!”</p><strong>Putri</strong><small>Klien videografi</small></article>
+          <article class="review"><div class="stars">★★★★★</div><p>“Komunikasinya mudah dan hasil akhirnya memuaskan. Sangat membantu untuk dokumentasi acara.”</p><strong>Rizky</strong><small>Klien dokumentasi acara</small></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact" id="kontak">
+      <div class="container">
+        <div class="eyebrow">Mulai Proyek Anda</div><h2>Siap mengabadikan <span>momen?</span></h2>
+        <p>Hubungi kami untuk konsultasi, informasi paket, atau pemesanan jasa fotografi dan videografi.</p>
+        <!-- Ganti nomor di bawah dengan nomor WhatsApp milik Anda, format: 628xxxxxxxxxx -->
+        <a class="btn" href="https://wa.me/6281234567890" target="_blank" rel="noopener">Hubungi via WhatsApp</a>
+      </div>
+    </section>
+  </main>
+  <footer><div class="container">©️ 2026 Syaf Creative. Photography & Videography.</div></footer>
+
+  <script>
+    function toggleMenu() {
+      document.getElementById('navLinks').classList.toggle('show');
+    }
+    document.querySelectorAll('.nav-links a').forEach(link => {
+      link.addEventListener('click', () => document.getElementById('navLinks').classList.remove('show'));
+    });
+  </script>
+</body>
+</html>
